@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="../node_modules/sweetalert/dist/sweetalert.css">
+
+<style>
+@charset "utf-8";
+
+.userProfileAdmin_topSection {
+	position: relative;
+	top: 100px;
+	max-width: 1024px;
+	margin: 0 auto;
+	border: 1px solid;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom-color: #C9C9C9;
+	padding-top: 80px;
+	background-color: white;
+	padding-bottom: 20px;
+}
+
+.userProfileAdmin_mainSection {
+	position: relative;
+	top: 70px;
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 50px;
+}
+
+.profile {
+	font-weight: bold;
+	font-size: 15px;
+	margin-right: 20px;
+	background-color: inherit !important;
+	text-decoration: none;
+}
+
+.profile>span {
+	text-decoration: none;
+	display: inline-block;
+}
+
+#changeProfile {
+	color: #e00000;
+}
+
+#unregisterBtn {
+	float: right;
+}
+
+.col-sm-2 {
+	margin: 25px 0px 0px 0px;
+}
+
+.col-sm-10 {
+	margin: 15px 0px 0px 0px;
+}
+
+.col-xs-2 {
+	padding-left: 0px;
+}
+
+#changeUserStatusInfo {
+	padding-top: 3px;
+	height: 30px;
+	width: 150px;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	background-color: #e00000;
+	border: 1px solid;
+	margin: 0 auto;
+	margin-top: 620px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+#changPassword {
+	padding-top: 3px;
+	height: 30px;
+	width: 150px;
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+	background-color: #e00000;
+	border: 1px solid;
+	margin: 0 auto;
+	margin-top: 160px;
+	border-radius: 4px;
+	text-align: center;
+}
+
+#passwordInfoPage {
+	display: none;
+}
+
+#changPassword {
+	display: none;
+}
+
+#profilePhotoSection {
+	margin-bottom: 20px;
+}
+
+#userPhotoInfo {
+	float: left;
+	width: 200px;
+	height: 250px;
+	padding-top: 0px;
+	padding-left: 0px;
+	margin: auto;
+	border: none;
+}
+
+.profileInfomer {
+	padding: 0px;
+	position: relative;
+	float: right;
+	margin-right: 55%;
+}
+
+#inputUserPhoto {
+	display: none;
+}
+
+#profilePhoto {
+	width: 200px;
+	height: 250px;
+	border-radius: 10px;
+}
+</style>
+</head>
+<body style="background-color: white;">
+	<div id="includeHeader"></div>
+	<div class="userProfileAdmin_topSection">
+		<div class="profile">
+			<span class="profile" id="changeProfile"><a href="#">프로필</a></span> <span
+				class="profile" id="changePassword"><a href="#">비밀번호 변경</a></span> <span
+				class="profile" id="unregisterBtn"><a href="#">회원탈퇴</a></span>
+		</div>
+	</div>
+
+	<div class="userProfileAdmin_mainSection" id="profileInfoPage">
+		<div class="form-group" id=profilePhotoSection>
+			<label for="inputEmail3" class="col-sm-2 control-label">프로필
+				사진</label>
+			<div class="col-sm-10">
+				<div class="form-control" id="userPhotoInfo">
+					<img id="profilePhoto" src="">
+				</div>
+				<div class="profileInfomer">
+					<a id="changeUserPhotoOperator" class="btn btn-default btn-sm">프로필
+						사진 변경</a>
+					<form id="uploadForm" action="#" name="uploadForm" method="post"
+						enctype="multipart/form-data">
+						<input id="inputUserPhoto" type="file" name="userProfilePhoto" />
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="email" class="form-control" id="userEmailInfo"
+					placeholder="Email " style="width: 300px;">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">닉네임</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="userNickNameInfo"
+					placeholder="nickname" style="width: 300px;">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">이름</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="userNameInfo"
+					placeholder="name" style="width: 300px;">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">소개말</label>
+			<div class="col-sm-10">
+				<textarea class="form-control" id="userIntroduce"
+					placeholder="소개하실 글을 작성해 주세요" style="width: 300px; height: 100px"></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="userProfileAdmin_mainSection" id="passwordInfoPage">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">새
+				비밀번호</label>
+			<div class="col-sm-10">
+				<input type="password"  class="form-control" id="changeNewPassword"
+					placeholder="New Password " style="width: 300px;">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">비밀번호
+				확인</label>
+			<div class="col-sm-10">
+				<input type="password" class="form-control" id="newPasswordConfirm"
+					placeholder="Re Password" style="width: 300px;">
+			</div>
+		</div>
+	</div>
+
+	<div class="userStatusInfo" id="changeUserStatusInfo">
+		<span><a href="#">변경사항 저장</a></span>
+	</div>
+
+	<div class="userStatusInfo" id="changPassword">
+		<span><a href="#">비밀번호 변경</a></span>
+	</div>
+
+
+
+	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../node_modules/jquery/dist/jquery.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="userProfileAdminPage.js"></script>
+	<script type="text/javascript" src="../lib/js/common.js"></script>
+	<script type="text/javascript" src="../membership/membership.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script>
+	<script
+		src="../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+	<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+
+	<script>
+  $(function(){
+    $("#includeHeader").load("../header.html"); 
+    ajaxUserProfileLoder();
+  });
+</script>
+	<script>
+ 
+    $(document).ready(function() {
+        $('#uploadForm').fileupload({
+            url : serverAddr + "/membership/profileFileUpload.json", 
+            dataType: 'json',
+            add: function(e, data){
+                var uploadFile = data.files[0];
+                var isValid = true;
+                if (!(/png|jpe?g|gif/i).test(uploadFile.name)) {
+                    alert('png, jpg, gif 만 가능합니다');
+                    isValid = false;
+                } else if (uploadFile.size > 10000000) { // 5mb
+                    alert('파일 용량은 10메가를 초과할 수 없습니다.');
+                    isValid = false;
+                }
+                if (isValid) {
+                    data.submit();              
+                }
+            }, done: function (e, data) {
+                var code = data.result.code;
+                var msg = data.result.msg;
+                if(code == '1') {
+                    $("#profilePhoto").attr('src',"/TeamProject/upload/"+data.result.data)
+                    $("#profilePicture").attr('src',"/TeamProject/upload/"+data.result.data)
+                } else {
+                    alert(code + ' : ' + msg);
+                } 
+            }, fail: function(e, data){
+                alert('서버와 통신 중 문제가 발생했습니다');
+                foo = data;
+            }
+        });
+    }); 
+</script>
+
+	<script>
+$("#changePassword").click(function(event){
+  $("#changePassword").css("color", "#e00000");
+  $("#changeProfile").css("color", "black");
+  $("#profileInfoPage").css("display", "none");
+  $("#changeUserStatusInfo").css("display", "none");
+  $("#passwordInfoPage").css("display", "inherit");
+  $("#changPassword").css("display", "inherit");
+})
+$("#changeProfile").click(function(event){
+  $("#changeProfile").css("color", "#e00000")
+  $("#changePassword").css("color", "black");
+  $("#profileInfoPage").css("display", "inherit");
+  $("#passwordInfoPage").css("display", "none");
+  $("#changeUserStatusInfo").css("display", "inherit");
+  $("#changPassword").css("display", "none");
+})
+$("#changeUserPhotoOperator").click(function(event){
+  $("#inputUserPhoto").click();
+})
+ajaxUserProfileFileLoder()
+</script>
+
+</body>
+</html>

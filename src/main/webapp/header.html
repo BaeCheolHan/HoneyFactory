@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/*reset*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+	blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd,
+	q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr,
+	th, td, article, aside, canvas, details, figcaption, figure, footer,
+	header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup,
+	menu, nav, section {
+	display: block;
+}
+
+input, textarea, select, button, table {
+	font-size: inherit;
+	font-family: inherit;
+	font-size: 100%;
+	-webkit-text-size-adjust: none;
+}
+
+ul, ol, li {
+	list-style: none;
+}
+
+
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+caption, legend {
+	position: absolute;
+	top: -5000px;
+	text-indent: -5000px;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
+img {
+	vertical-align: middle;
+}
+
+table {
+	display: table;
+}
+
+caption {
+	display: table-caption;
+}
+
+colgroup {
+	display: table-column-group;
+}
+
+col {
+	display: table-column;
+}
+
+thead {
+	display: table-header-group;
+}
+
+tbody {
+	display: table-row-group;
+}
+
+tfoot {
+	display: table-footer-group;
+}
+
+tr {
+	display: table-row;
+}
+
+td, th {
+	display: table-cell;
+}
+
+ul:after {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+body {
+	font-family: "arial", sans-serif;
+	font-size: 12px;
+}
+/*reset*/
+.header_Main_Background {
+	margin: 0px;
+	padding: 0;
+	background-color: #e00000;
+	height: 60px;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+	min-width: 1024px;
+}
+
+.ui-menu-item {
+	background: #ffffff;
+	color: #333333;
+	font-size: 15px;
+	height: 35px;
+	padding-top: 3px;
+}
+
+#header_Background {
+	margin: 0 auto;
+	padding: 0;
+	background-color: white;
+	height: 57px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.header_leftSection {
+	width: 20%;
+	height: 40px;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.headPageShift {
+	position: fixed;
+	overflow: hidden;
+}
+
+.headlogo {
+	margin: 6px 10px 0px 30px;
+	padding: 0;
+	float: left;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.headlogo a:hover {
+	text-decoration: none;
+}
+
+.headlist {
+	margin: 18px 13px 13px 13px;
+	float: right;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.headlist>a:hover {
+	color: white;
+}
+
+.headlist>a {
+	text-decoration: none;
+	color: #646464;
+}
+
+.headerRightSection {
+	width: 20%;
+	height: 32px;
+	left: 50%;
+	overflow: hidden;
+	float: right;
+}
+
+.seachBar {
+	width: 400px;
+	overflow: hidden;
+	display: inline-block;
+	margin-left: 15%;
+	position: fixed;
+	top: 15px;
+	z-index: 10000;
+}
+
+.search {
+	position: relative;
+	margin: 0px;
+}
+
+#inputSearchKey {
+	width: 362px;
+	height: 27px;
+	border: none;
+	border-bottom: #e00000 1px solid;
+	text-align: center;
+	font-size: 16px;
+	outline: none;
+}
+
+#inputSearchKey:focus{
+  boder:none;
+  border-bottom: #e00000 1px solid;
+}
+
+.searchButton {
+	cursor: pointer;
+	position: absolute;
+	margin: 0px 0px 0px 7px;
+}
+
+#newWrite {
+	float: left;
+	position: absolute;
+	margin: 0px 3px 0px -33px;
+	font-weight: bold;
+	overflow: hidden;
+	height: 48px;
+}
+
+#newMessageAlert {
+	padding: 2px 4px;
+	min-width: 5px;
+	font-size: 5px !important;
+	background-color: #e00000;
+	margin-left: 3px;
+}
+
+.header-button {
+	margin-top: 13px;
+}
+
+#newWrite a:hover {
+	text-decoration: none;
+}
+
+#confirmLogin {
+	position: absolute;
+	/* float: left; */
+	float: right;
+	right: 100px;
+	height: 17px;
+	margin: 17px 0px 7px 220px;
+	overflow: hidden;
+	font-size: 13px;
+	line-height: 22px;
+	color: #666666;
+}
+
+#header_Background a {
+	color: #646464;
+}
+
+#message {
+	padding: 0px;
+	background-size: 20px;
+	margin-left: 25px;
+}
+
+#cloud {
+	padding: 0px;
+	background-size: 20px;
+	margin-left: 13px;
+}
+
+#logoutBtn {
+	padding: 0px;
+	background-size: 20px;
+	margin-left: 25px;
+}
+
+.userProfilePicture {
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+	border: #e6e6e6 1px solid;
+	margin-left: 25px;
+}
+
+#fb-login-button {
+	position: relative;
+	float: right;
+}
+
+div#viewLoading {
+	text-align: center;
+	padding-top: 70px;
+	background: #FFFFF0;
+	filter: alpha(opacity = 60);
+	opacity: alpha*0.6;
+}
+</style>
+
+</head>
+
+<body>
+	<div class=header_Main_Background>
+		<div id=header_Background>
+
+			<div class=header_leftSection>
+				<ul class="headPageShift">
+					<li class="headlogo"><a href="#"><img
+							src="/TeamProject/logoPic.png" width="150px" height="35px"></a></li>
+					<li class="headlist"><a href="#">내 커뮤니티</a></li>
+				</ul>
+			</div>
+
+			<div class="seachBar">
+				<input id="inputSearchKey" name=search type=text placeholder="검색어를 입력하세요"  onkeydown="javascript:if(event.keyCode==13){searchRun()}"> 
+				<span class="searchButton"> <img src="../search-engine.png"	width="25" /> </span>
+			</div>
+
+			<div class=headerRightSection>
+				<div id="newWrite">
+					<a href='#'><img class="header-button" id="writing"
+						width="23px" height="23px" src="../write.svg"></a> <a href='#'><img
+						class="header-button" id="message" width="23px" height="23px"
+						src="../message.svg"><span id="newMessageAlert"
+						class="badge"></span></a> <a href='#'><img class="header-button"
+						id="cloud" width="23px" height="23px" src="../cloud-computing.svg"></a><a
+						href="#"><img class="userProfilePicture header-button"
+						id="profilePicture" src=""></a> <a href='#'><img
+						id="logoutBtn" class="header-button" width="21px" height="21px"
+						src="../logout.svg"></a>
+				</div>
+
+				<div id="confirmLogin">
+					<ul>
+						<a id="login" href="#"><li>로그인 하세요</li></a>
+					</ul>
+				</div>
+
+
+			</div>
+			<div id="fb-root"></div>
+
+		</div>
+
+		<script type="text/javascript" src="/TeamProject/userAuthApp.js"></script>
+		<script type="text/javascript" src="../membership/likeList.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript"
+			src="../resultOfSearch/resultOfSearch.js"></script>
+
+		<script>
+			$(document).ready(function($) {
+				// 페이지가 로딩될 때 'Loading 이미지'를 숨긴다.
+				$('#viewLoading').hide();
+			});
+
+			$(".headlogo").click(function() {
+				location.href = "../mainpage/Main.html"
+			})
+
+			$(".headlist").click(function() {
+				location.href = "../adminpage/HoneyAdminPage.html"
+			})
+
+			$("#writing").click(function() {
+				location.href = "../writepage/writepage.html"
+			})
+
+			$("#message").click(function() {
+				location.href = "../membership/message.html"
+			})
+
+			$("#cloud").click(function() {
+				location.href = "../FilePage/fileMainPage.html"
+			})
+
+			$("#login").click(function() {
+				location.href = "../mainpage/LoginPage.html"
+			})
+
+			$("#logoutBtn").click(function(event) {
+				location.href = "../mainpage/Main.html"
+				ajaxLogout()
+			});
+			
+			$(".searchButton").click(function() {
+				var searchInfo = $("#inputSearchKey").val()
+				console.log(searchValue)
+				ajaxSearchValue(searchInfo)
+			})
+
+			$("#logoutBtn").click(function(event) {
+				event.stopImmediatePropagation();
+				location.href = "../mainpage/Main.html"
+				ajaxLogout()
+				FB.logout();
+			})
+
+			$("#profilePicture").click(function() {
+				location.href = "../membership/userProfileAdminPage.html"
+			})
+
+			ajaxLoginUser();
+			ajaxNewMessageAlam();
+			
+
+    function searchRun(){
+       setTimeout(function()
+       {      var searchValue = $("#inputSearchKey").val()
+              ajaxSearchValue(searchValue) }, 400)
+       }
+
+		</script>
+
+
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId : '1108769789218956', // 앱 ID
+					status : true, // 로그인 상태를 확인
+					cookie : true, // 쿠키허용
+					xfbml : true
+				// parse XFBML
+				});
+				FB.Event.subscribe('auth.logout', function(response) {
+					document.location.reload();
+				});
+
+			};
+			(function(d) {
+				var js, id = 'facebook-jssdk', ref = d
+						.getElementsByTagName('script')[0];
+				if (d.getElementById(id)) {
+					return;
+				}
+				js = d.createElement('script');
+				js.id = id;
+				js.async = true;
+				js.src = "//connect.facebook.net/en_US/all.js";
+				ref.parentNode.insertBefore(js, ref);
+			}(document));
+		</script>
+</body>
+
+</html>

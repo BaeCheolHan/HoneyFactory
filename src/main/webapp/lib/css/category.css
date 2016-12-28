@@ -1,0 +1,156 @@
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+.categoryLink:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.categoryWrap {
+	position: relative;
+}
+/* #category_tab > li { */
+/*   float: left; */
+/*   width:80px; */
+/*   height:50px; */
+/*   text-align: center; */
+/* } */
+/* #category_tab > li { */
+/* 	position: absolute; */
+/* } */
+/* #category_tab .hodstate0 { */
+/*   float: left; */
+/*    width: 350px; */ 
+/*    height:170px; */ 
+/*     width:70px; */
+/*   height:70px; */
+/*   text-align: center; */
+/*   border-radius: 35px; */
+/*   background-color: #D5FBFF; */
+/*   margin-right: 50px; */ 
+/* margin: 0 0 5px 10px; */
+/*   overflow: hidden; */
+/*   text-align: center; */
+/*   font-size: 10px; */
+/*   padding-top: 30px; */
+/* } */
+#category_tab .hodstate {
+	font-size: 12px;
+  padding-top: 26px;
+/*   text-align: center; */
+  float: left;
+  width:70px;
+  height:70px;
+/*   width:80px; */
+/*   height:80px; */
+  text-align: center;
+  border-radius: 35px;
+  background-color: #f05851;
+  margin: 0 0 5px 20px;
+  overflow: hidden;
+  font-family: "arial", sans-serif;
+  color: white;
+  border: 3px solid #F25252;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+
+#category_tab .hodstate0 {
+  font-size: 11px;
+  padding-top: 16px;
+/*   text-align: center; */
+  float: left;
+  width:70px;
+  height:70px;
+/*   width:80px; */
+/*   height:80px; */
+  text-align: center;
+  border-radius: 35px;
+  background-color: #f05851;
+  margin: 0 0 5px 20px;
+  overflow: hidden;
+  font-family: "arial", sans-serif;
+  color: white;
+  border: 3px solid #F25252;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+}
+
+#category_tab .hodstate div{
+	vertical-align: middle;
+}
+
+#category_tab .hodstate:hover {
+	transform: scale(1.4,1.4);
+	background-color: white;
+	border: 3px solid #5d6365;
+	color: #5d6365;
+	-webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+}
+#category_tab .hodstate0:hover {
+	transform: scale(1.4,1.4);
+	background-color: white;
+	border: 3px solid #5d6365;
+	color: #5d6365;
+	-webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+  transition:width 0.5s, height 0.5s, background-color 0.5s, transform 0.5s;
+}
+.category-active {
+  border: 3px solid #5d6365 !important;
+  background-color: white !important;
+  color: #5d6365 !important;
+ 
+}
+#category_tab_outside {
+  width: 100%;
+}
+#category_tab > li:HOVER{
+  cursor: pointer;
+  text-decoration: none;
+/*   background: #a0a0a0;  */
+}
+#category_tab > li:FOCUS{
+  cursor: pointer;
+  text-decoration: none;
+}
+/* #category_tab > li > .category-img { */
+/*   width: 70px; */
+/*   height: 70px; */
+/* /*   width: 80px; */ 
+/* /*   height: 80px; */ 
+/* } */
+/* #category_tab > li > .category-firstimg { */
+/* 	width: 70px; */
+/*   height: 70px; */
+/* /*   width: 350px; */ 
+/* /*   height: 170px; */ 
+/* } */
+
+/* #category_tab > li > span { */
+/* 	position: relative; */
+/* } */
+/* #category_tab_outside { */
+/*   background-color: white; */
+/*   width: 880px; */
+/*   margin: 0 auto 10px auto; */
+/* } */
+/* #category_tab > li:HOVER{ */
+/*   cursor: pointer; */
+/*   text-decoration: none; */
+/*   background: #a0a0a0;  */
+   
+/* } */
+/* #category_tab > li:FOCUS{ */
+/*   cursor: pointer; */
+/*   text-decoration: none; */
+/* } */
+/* #category_tab > li > img { */
+/*   width: 40px; */
+/*   height: 20px; */
+/*   margin: 5px 20px; */
+/* } */
+/* .category-active { */
+/*   background-color: gray; */
+/* } */
+

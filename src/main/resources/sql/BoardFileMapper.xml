@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="honey.dao.HoneyBoardFileDao">
+  <resultMap type="HoneyBoardFile" id="boardFileMap">
+    <id column="Board_no" property="boardNo"/> 
+    <id column="File_No" property="fileNo"/> 
+    <id column="Member_no" property="mb_no"/>
+    <id column="File_Name" property="fileName"/>
+    <id column="ORI_FILENM" property="OriginFileName"/>
+    <id column="File_Size" property="fileSize"/>
+    <id column="CreDate" property="createdDate"/>
+  </resultMap>
+  
+  <insert id="boardPhotoInsert" parameterType="HoneyBoardFile">
+    insert into board_files(File_Name, ORI_FILENM, Member_No, File_Size, CreDate, Board_no) (select
+    #{fileName}, #{OriginFileName}, #{mb_no}, #{fileSize}, now(),
+    (select max(BD_NO) from HONEY_BOARDS))
+  </insert>
+  
+  <insert id="fileInsert" parameterType="HoneyBoardFile">
+    insert into board_files(File_Name, ORI_FILENM, Member_No, File_Size, CreDate)
+    values(#{fileName}, #{OriginFileName}, #{mb_no}, #{fileSize}, now())
+  </insert>
+  
+  <update id="updateFile" parameterType="HoneyBoardFile">
+    update board_files set
+    File_Name=#{fileName},
+    ORI_FILENM=#{OriginFileName},
+    File_Size=#{fileSize},
+    CreDate=now()
+    where Board_no=#{boardNo}
+    
+  </update>
+  
+  <select id="otherUserReturnMethod" resultMap="boardFileMap" parameterType= "int">
+    select File_No, File_Name, Board_No, ORI_FILENM, File_Size, CreDate, Member_no
+       from board_files 
+   where Member_no = #{memberNo}
+  </select>
+  
+    <select id="fileList" resultMap="boardFileMap" parameterType= "map">
+  select File_No, File_Name, Board_No, ORI_FILENM, File_Size, CreDate, Member_no
+  from board_files 
+  where Member_no = #{memberNo}
+   limit  #{pageLength}
+  </select>
+  
+  <select id="countAll" parameterType="int" resultType="int">
+    select count(*) from board_files 
+    where Member_no = #{value}
+  </select>
+  
+  <delete id="fileDelete" parameterType="int">
+   delete from board_files  
+   where File_No = #{value}
+  </delete>
+  
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

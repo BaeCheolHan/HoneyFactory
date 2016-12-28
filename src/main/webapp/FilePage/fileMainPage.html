@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../node_modules/sweetalert/dist/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="filepage.css">
+<link rel="stylesheet" href="../node_modules/nailthumb/jquery.nailthumb.1.1.min.css">
+
+</head>
+
+<body>
+	<header>
+		<div id="includedContent"></div>
+	</header>
+
+	<div id="body_Line">
+
+		<div class="topSection">
+			<div class="userInfocontainer">
+				<div class="userProfilePhotosContainer">
+					<img id="userPhoto" src="">
+				</div>
+				<div class="userNickNameContainer">
+					<div id="userNickName">
+						<span id="userNickNameInfo"></span>
+						<img id="ProfileEditLinkGear" class="profileEdit_Btn" src="../gear-3.svg">
+						<span id="editWord" class="profileEdit_Btn">edit</span>
+					</div>
+					<div id="userIntroduce">
+						<span id="user-introduce"></span>
+					</div>
+				</div>
+				<div class="userBoardInfoContainer">
+					<div class="received">
+						<p>RECEIVED</p>
+					</div>
+					<div class="views">
+						<span class="text">View</span> <span id="viewCount"
+							class="numbering"></span>
+					</div>
+					<div class="likes">
+						<span class="text">Likes</span> <span id="likeCount" 
+						class="numbering"></span>
+					</div>
+					<div class="followers">
+						<span class="text">followers</span> <span id="followers"
+							class="numbering"></span>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="contentsSection">
+			<div id="centerContents">
+				<div id="centerContentsWrap">
+				</div>
+			</div>
+		</div>
+		<div id="admin_detail">
+			<div id="DetailPage_Wrap">
+
+				<div id="fileTable">
+					<button class="btn btn-primary fileAddBtn" id="btn" data-no=1>파일등록</button>
+					<table id="boardTable" class="table table-hover">
+						<thead>
+							<tr>
+								<th style="padding-left: 35px;">썸네일</th>
+								<th style="padding-left: 8px;">제목</th>
+								<th style="padding-left: 18px;">등록일</th>
+								<th style="padding-left: 18px;">용량</th>
+								<th style="padding-left: 11px;">삭제하기</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+
+          <div id="boardBtn">
+            <span class="moreViewBtn">+ 더보기</span>
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+  <div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="modalDialog">
+      <div class="modal-content">
+        <div class="modal-body" id="modalBody">
+          <div class="addFileTopSection">
+            <div  class="userInfo"><span class="Infotext">파일을 선택해 올려주세요.</span><br>
+            <span class="dangerText">※ 최대 100MB까지 등록 가능합니다.</span>
+            </div>
+            <div class="addFileSection">
+              <div class="fileUploatIconWrap">
+                <form>
+                  <input type="file" id="fileUpload" size="1000000000"
+                  name="media" multiple />
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="addFileMidSection">
+            <div class="fileListWrap" id="fileListWrap">
+            </div>
+          </div>
+          <div class="addFileBotSection">
+            <button id="cancleFileBtn" type="button" class="btn btn-default" data-dismiss="modal">취 소</button>
+            <button id="sendFileBtn" type="submit" class="btn btn-default">올리기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script id="CloudUiTemplateText" type="text/x-handlebars-template">
+{{#each fileList}}
+    <tr>
+      <label>
+          <td style="padding-left: 25px; width:170px;"><div><a href="http://52.78.179.146:8080/TeamProject/upload/{{fileThumbnail}}" download>
+		  	<img class="fileThumbnail" src="http://52.78.179.146:8080/TeamProject/upload/{{fileThumbnail}}"></a></div></td>
+          <td><a id="filenameLink" href="http://52.78.179.146:8080/TeamProject/upload/{{fileThumbnail}}" download>{{originFileName}}</a></td>
+          <td style="width: 136px;">{{createdDate}}</td>
+          <td style="width: 166px;">{{stringFileSize}}</td>
+          <td style="width: 96px;"><button  class="btn btn-danger" id="btn" data-no={{fileNo}}>삭제</button></td>
+     </label>
+    </tr>
+{{/each}}
+</script>
+
+	<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+ 	<script src="../node_modules/handlebars/dist/handlebars.min.js"></script> 
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+	<script type='text/javascript' src="../lib/js/common.js"></script>
+	<script type="text/javascript" src="fileMainPage.js"></script>
+
+	<script type="text/javascript">
+		ajaxloadNickName()
+	</script>
+	<script>
+		ajaxFileList()
+	</script>
+
+	<script>
+		$("#ProfileEditLink").click(function() {
+			window.location.href = "../membership/userProfileAdminPage.html"
+		});
+
+		$("#TipBoardLink").click(function() {
+			window.location.href = "../adminpage/HoneyAdminPage.html"
+		});
+		$("#StorageLink").click(function() {
+			window.location.href = "filepage.html"
+		});
+	</Script>
+
+</body>
+
+</html>
