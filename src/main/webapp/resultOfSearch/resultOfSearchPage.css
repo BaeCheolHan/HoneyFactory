@@ -680,62 +680,6 @@ background-color: white;
   height: auto;
 }
 
-/* #userDesc div img{ */
-/*  max-width: 556px; */
-/*  height: auto; */
-/* } */
-/* #userDesc2 div img{ */
-/*   max-width: 556px; */
-/*   height: auto; */
-/* } */
-/* coments */
-
-/* .cmts_list { */
-/*   max-height: 468px; */
-/*   overflow: scroll; */
-/*   margin-bottom: 2px; */
-/* } */
-
-/* .post_cmt_list { */
-/*   width: 282px; */
-/*   height: 500px; */
-/* } */
-
-/* .post_cmt_list .post_cmt_pt { */
-/*   height: 30px; */
-/* } */
-
-/* .coment_wrap>div { */
-/*   padding: 3px; */
-/* } */
-
-/* .coment_info { */
-/*   width: 100%; */
-/*   word-break: break-all; */
-/* } */
-
-/* .cmt_userNick { */
-/*   width: 100%; */
-/*   padding-right: 3px; */
-/*   font-weight: bold; */
-/*   font-size: 15px; */
-/* } */
-
-/* .reply_cmt_userNick { */
-/*   padding-right: 3px; */
-/*   font-weight: bold; */
-/*   font-size: 15px; */
-/* } */
-
-/* .coment_replyArea { */
-/*   padding-left: 30px; */
-/* } */
-
-/* .reply_wrap { */
-/*   max-height: 120px; */
-/*   overflow: hidden; */
-/* } */
-
 #modalDialog {
   padding-top: 30px;
   width: 660px;

@@ -48,18 +48,7 @@ public class HoneyMainController {
 				} else {
 				  list.get(i).setUserProfilePath("http://graph.facebook.com/" + userPhotoSplit[0] + "/picture");
 				}
-//				list.get(i).setUserProfilePath(userPhoto);
 			}
-//			for (int i = 0; i < list.size(); i++) {
-//			  String userPhotoPath = list.get(i).getUserProfilePath();
-//			  System.out.println("userPhotoPath잘받아오는지? " + userPhotoPath);
-//			  String[] splitUserPhotoPath = userPhotoPath.split(".");
-//			  if (splitUserPhotoPath.length == 2) {
-//			    list.get(i).setUserProfilePath("/TeamProject/upload/" + splitUserPhotoPath[0] + "." + splitUserPhotoPath[1]);
-//			  } else {
-//			    list.get(i).setUserProfilePath("http://graph.facebook.com/" + splitUserPhotoPath[0] + "/picture");
-//			  }
-//			}
 			List<HoneyMain> list1 = new ArrayList<HoneyMain>();
 			List<HoneyMain> list2 = new ArrayList<HoneyMain>();
 			List<HoneyMain> list3 = new ArrayList<HoneyMain>();
@@ -106,7 +95,6 @@ public class HoneyMainController {
         } else {
           categorylist.get(i).setUserProfilePath("http://graph.facebook.com/" + userPhotoSplit[0] + "/picture");
         }
-//        categorylist.get(i).setUserProfilePath(userPhoto);
       }
       
       List<HoneyMain> list1 = new ArrayList<HoneyMain>();
@@ -148,7 +136,6 @@ public class HoneyMainController {
 			List<HoneyComent> list = comentService.getComent(no, pageNo, length);
 			HoneyMembers member = (HoneyMembers)session.getAttribute("member");
 			Object membNo;
-//			System.out.println("로그인중인 회원번호:"+ member.getMemberNo());
 			
 			if(member == null) {
 				membNo = 0;
@@ -195,7 +182,6 @@ public class HoneyMainController {
     } else {
       honeyMain.setUserProfilePath("http://graph.facebook.com/" + userPhotoSplit[0] + "/picture");
     }
-//		honeyMain.setUserProfilePath(userPhoto);
 		System.out.println("fileStatus: " + honeyMain.getFileStatus());
 		
 		List<FileList> fileList = new ArrayList<FileList>();
@@ -234,10 +220,6 @@ public class HoneyMainController {
 			HoneyMembers member = (HoneyMembers)session.getAttribute("member");
 			System.out.println("CmtInsertMemberNo= " + member.getMemberNo());
 			honeyComent.setMemberNo(member.getMemberNo());
-			//      HoneyMain honeyMain = (HoneyMain)session.getAttribute("honeyMain");
-			//      session.setAttribute("honeyCmt", honeyComent);
-			//      honeyComent.setNo(honeyMain.getNo());
-			//      System.out.println(honeyComent.getNo());
 			comentService.insertComent(honeyComent);
 			comentService.saveCometNo(honeyComent);
 			return JsonResult.success(honeyComent);
@@ -253,10 +235,6 @@ public class HoneyMainController {
 			HoneyMembers member = (HoneyMembers)session.getAttribute("member");
 			System.out.println("CmtInsertMemberNo= " + member.getMemberNo());
 			honeyComent.setMemberNo(member.getMemberNo());
-			//      HoneyMain honeyMain = (HoneyMain)session.getAttribute("honeyMain");
-			//      session.setAttribute("honeyCmt", honeyComent);
-			//      honeyComent.setNo(honeyMain.getNo());
-			//      System.out.println(honeyComent.getNo());
 			comentService.insertChildComent(honeyComent);
 			comentService.saveCometNo(honeyComent);
 			return JsonResult.success(honeyComent);

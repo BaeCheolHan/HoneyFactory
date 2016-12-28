@@ -87,7 +87,6 @@ public class HoneymembersController {
 
 	@RequestMapping(path="userInfoDetail")
 	public Object userInfoDetail (HttpSession session) throws Exception {
-		// 이 메서드는 DB에서 작업할 일이 없어서 service 클래스에서 따로 구현할 필요가 없을 것 같다.
 		try {
 			HoneyMembers hMembers = (HoneyMembers)session.getAttribute("member");
 			HoneyMembers user = hMembersService.getUserInfo(hMembers.getMemberNo());
@@ -139,8 +138,6 @@ public class HoneymembersController {
 			HttpServletResponse res, HttpSession session) throws IOException {
 		String uploadDir = sc.getRealPath("/upload") + "/";
 		Iterator<String> itr =  req.getFileNames();
-		/* Iterator : 모든 컬랙션으로부터 정보를 얻을 수 있는 인터페이스
-		 */
 		MultipartFile mpf = req.getFile(itr.next());
 		String originFileName = mpf.getOriginalFilename();
 

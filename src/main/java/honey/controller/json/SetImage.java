@@ -21,7 +21,6 @@ public class SetImage {
 					honeyMainList.get(i).setLinkDetailUrl(urlInfoList.get(j).getDetailUrl());
 				}
 			}
-			//String[] imageHref = honeyMainList.get(i).getLinkDesc().split("\"");
 			if (honeyMainList.get(i).getLinkImage() == null) {
 				if (honeyMainList.get(i).getContents() != null) {
 					boolean image = honeyMainList.get(i).getContents().contains("img src");
@@ -59,7 +58,6 @@ public class SetImage {
 	          honeyMainList.get(i).setLinkDetailUrl(urlInfoList.get(j).getDetailUrl());
 	        }
 	      }
-	      //String[] imageHref = honeyMainList.get(i).getLinkDesc().split("\"");
 	      if (honeyMainList.get(i).getLinkImage() == null) {
 	        if (honeyMainList.get(i).getContents() != null) {
 	          boolean image = honeyMainList.get(i).getContents().contains("img src");

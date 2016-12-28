@@ -36,15 +36,7 @@ public class HoneyFileController {
 			Thumbnail settingThumbnail = new Thumbnail();
 			List<HoneyBoardFile>fileList = settingThumbnail.setThumbnail(boardService.getFileList(memberNo, pageLength));
 			
-//			for (int i = 0; i < fileList.size(); i++) {
-//				double mb = Math.round(((fileList.get(i).getFileSize() / (double)1048576) * 100d));
-//				System.out.println("mb size= " + mb);
-//				double temp = mb / 100d;
-//				System.out.println("temp= " + temp);
-//				fileList.get(i).setFileSize(temp);
-//			}
 			for (int i = 0; i < fileList.size(); i++) {
-//			  double fileSizes = fileList.get(i).getFileSize();
 			  if(fileList.get(i).getFileSize() <= 999999) {
 			    double kb = fileList.get(i).getFileSize()*0.000977;
 			    String kbSize = String.format("%.2f", (float)kb)+" KB";

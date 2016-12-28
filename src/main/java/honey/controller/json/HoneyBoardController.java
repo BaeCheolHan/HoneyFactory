@@ -68,9 +68,6 @@ public class HoneyBoardController {
 				System.out.println("url start!!!!");
 				UrlInfo url = Scrapper.UrlForDB(board.getUrl());
 				url.setMb_No(hMember.getMemberNo());
-				//url.setBd_No(bd_No);
-				//url.setBd_No(boardService.getBoardMax().getNo());
-				//System.out.println("no= " + boardService.getBoardMax().getNo());
 				boardService.insertUrl(url);
 			}
 
@@ -168,11 +165,9 @@ public class HoneyBoardController {
 		try {
 			HashMap<String,Object> paramMap = new HashMap<>();
 			paramMap.put("no", board.getNo());
-			
+
 			int memberNo = ((HoneyMembers)session.getAttribute("member")).getMemberNo();
-			
-//			boardService.updateBoard(board);
-//			return JsonResult.success();
+
 			if (!board.getYoutubeURL().equals("")) {
 				String[] youtubeContents = board.getYoutubeURL().split("/");
 				System.out.println("arr[3]= " + youtubeContents[3]);
@@ -200,9 +195,6 @@ public class HoneyBoardController {
 				System.out.println("멤버번호 셋 시작");
 				url.setMb_No(memberNo);
 				System.out.println("멤버번호 셋 종료");
-				//url.setBd_No(bd_No);
-				//url.setBd_No(boardService.getBoardMax().getNo());
-				//System.out.println("no= " + boardService.getBoardMax().getNo());
 				boardService.updateUrl(url);
 			}
 
@@ -244,23 +236,7 @@ public class HoneyBoardController {
 			return JsonResult.fail(e.getMessage());
 		}
 	}
-	/*
-  @RequestMapping(path="preview")
-  public Object preview(String url, HttpSession session, SessionStatus sessionStatus) throws Exception {
-	  try {
-		  if (url ==  null) {
-			  sessionStatus.setComplete();
-			  System.out.println("서버에 전송된 url: " + url);
-			  return JsonResult.fail();
-		  } else {
-			  session.setAttribute("url", url);
-		  }
-		  return JsonResult.success();
-	  } catch (Exception e) {
-		  return JsonResult.error(e.getMessage());
-	  }
-  }
-	 */
+
 	@RequestMapping(path="previewlist")
 	public Object previewlist(String urlinfo) throws Exception {
 		try {
@@ -280,8 +256,6 @@ public class HoneyBoardController {
 
 		String uploadDir = sc.getRealPath("/upload") + "/";
 		Iterator<String> itr =  req.getFileNames();
-		/* Iterator : 모든 컬랙션으로부터 정보를 얻을 수 있는 인터페이스
-		 */
 		MultipartFile mpf = req.getFile(itr.next());
 		String originFileName = mpf.getOriginalFilename();
 
@@ -303,8 +277,8 @@ public class HoneyBoardController {
 			return JsonResult.fail(e.getStackTrace());
 		}
 	}
-	
-	
+
+
 	@RequestMapping(path="likeBoard")
 	public Object likeBoard(honey_boards no, HttpSession session) throws Exception {
 		try {
@@ -312,7 +286,7 @@ public class HoneyBoardController {
 			if(loginUser.getEmail() == null) {
 				throw new RuntimeException();
 			}
-			
+
 			honey_boards likeBoard = new honey_boards();
 			likeBoard.setNo(no.getNo());
 			likeBoard.setUserNo(loginUser.getMemberNo());
@@ -329,8 +303,8 @@ public class HoneyBoardController {
 			return JsonResult.fail();
 		} 
 	}
-	
-	
+
+
 	@RequestMapping(path="likeDisconnect")
 	public Object followDisconnect(honey_boards no, HttpSession session) throws Exception {
 		try {
@@ -343,8 +317,8 @@ public class HoneyBoardController {
 		} 
 
 	}
-	
-	
+
+
 	@RequestMapping(path="checkingLike")
 	public Object checkingFollow(honey_boards no, HttpSession session) throws Exception {
 		try {
@@ -370,6 +344,6 @@ public class HoneyBoardController {
 			return JsonResult.fail();
 		} 
 	}
-	
+
 }
 
